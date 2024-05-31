@@ -2,7 +2,7 @@ import 'dart:core';
 
 import 'unit.dart';
 
-enum TemperatureUnit implements BaseUnit{
+enum TemperatureUnit implements BaseUnit {
   fahrenheit,
   celsius,
   kelvin,
@@ -39,17 +39,13 @@ enum TemperatureUnit implements BaseUnit{
         throw Exception('Temperature: unit $units is not supported');
     }
   }
-
 }
 
-
 /// Temperature class keeps information about the temperature
-class Temperature extends ValueWithUnit< TemperatureUnit>{
+class Temperature extends ValueWithUnit<TemperatureUnit> {
   Temperature(super.value, super.unit);
   Temperature.inUnit(Temperature other, TemperatureUnit unit)
       : super(other.into(unit), unit);
-
-
 
   @override
   String toString() {
@@ -90,7 +86,7 @@ class Temperature extends ValueWithUnit< TemperatureUnit>{
   }
 
   @override
-  ValueWithUnit< TemperatureUnit> inUnits(TemperatureUnit units) {
+  ValueWithUnit<TemperatureUnit> inUnits(TemperatureUnit units) {
     return Temperature(into(units), units);
   }
 }
@@ -100,7 +96,8 @@ void main() async {
   try {
     var temp = Temperature(100, TemperatureUnit.celsius);
     print(temp.toString()); // 212.0°F
-    print(Temperature.inUnit(temp, TemperatureUnit.kelvin).toString()); // 373.15°K
+    print(Temperature.inUnit(temp, TemperatureUnit.kelvin)
+        .toString()); // 373.15°K
     print(temp.inUnits(TemperatureUnit.rankin)); // 671.67
     print(temp.inUnits(TemperatureUnit.celsius)); // 671.67
   } catch (e) {

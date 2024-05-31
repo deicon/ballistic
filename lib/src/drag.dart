@@ -1,4 +1,3 @@
-
 enum DragTableId {
   g1,
   g2,
@@ -87,10 +86,12 @@ DragFunction dragFunctionFactory(DragTableId dragTable) {
 BallisticCoefficient createBallisticCoefficientForCustomDragFunction(
     double value, int valueType, DragFunction dragTable) {
   if (value <= 0) {
-    throw ArgumentError('BallisticCoefficient: Drag coefficient must be greater than zero');
+    throw ArgumentError(
+        'BallisticCoefficient: Drag coefficient must be greater than zero');
   }
   if (valueType != bc && valueType != ff) {
-    throw ArgumentError('BallisticCoefficient: The value type must be either BC or FF');
+    throw ArgumentError(
+        'BallisticCoefficient: The value type must be either BC or FF');
   }
   return BallisticCoefficient(
     value: value,
@@ -102,12 +103,15 @@ BallisticCoefficient createBallisticCoefficientForCustomDragFunction(
 
 /// CreateBallisticCoefficient creates ballistic coefficient object using the
 /// ballistic coefficient value and ballistic table.
-BallisticCoefficient createBallisticCoefficient(double value, DragTableId dragTable) {
-  if (dragTable.index < DragTableId.g1.index || dragTable.index > DragTableId.gS.index) {
+BallisticCoefficient createBallisticCoefficient(
+    double value, DragTableId dragTable) {
+  if (dragTable.index < DragTableId.g1.index ||
+      dragTable.index > DragTableId.gS.index) {
     throw ArgumentError('BallisticCoefficient: Unknown drag table $dragTable');
   }
   if (value <= 0) {
-    throw ArgumentError('BallisticCoefficient: Drag coefficient must be greater than zero');
+    throw ArgumentError(
+        'BallisticCoefficient: Drag coefficient must be greater than zero');
   }
   return BallisticCoefficient(
     value: value,
@@ -225,7 +229,6 @@ List<DataPoint> g1Table = [
 
 List<CurvePoint> g1Curve = calculateCurve(g1Table);
 
-
 List<DataPoint> g7Table = [
   DataPoint(A: 0.00, B: 0.1198),
   DataPoint(A: 0.05, B: 0.1197),
@@ -308,7 +311,7 @@ List<DataPoint> g7Table = [
   DataPoint(A: 4.00, B: 0.1935),
   DataPoint(A: 4.20, B: 0.1861),
   DataPoint(A: 4.40, B: 0.1793),
-  DataPoint(A: 4.60, B:0.1730),
+  DataPoint(A: 4.60, B: 0.1730),
   DataPoint(A: 4.80, B: 0.1672),
   DataPoint(A: 5.00, B: 0.1618),
 ];
@@ -744,8 +747,10 @@ List<CurvePoint> calculateCurve(List<DataPoint> dataPoints) {
   int numPoints = dataPoints.length;
   double x1, x2, x3, y1, y2, y3, a, b, c;
 
-  double rate = (dataPoints[1].B - dataPoints[0].B) / (dataPoints[1].A - dataPoints[0].A);
-  curve.add(CurvePoint(A: 0, B: rate, C: dataPoints[0].B - dataPoints[0].A * rate));
+  double rate =
+      (dataPoints[1].B - dataPoints[0].B) / (dataPoints[1].A - dataPoints[0].A);
+  curve.add(
+      CurvePoint(A: 0, B: rate, C: dataPoints[0].B - dataPoints[0].A * rate));
 
   for (int i = 1; i < numPoints - 1; i++) {
     x1 = dataPoints[i - 1].A;
@@ -764,7 +769,8 @@ List<CurvePoint> calculateCurve(List<DataPoint> dataPoints) {
   return curve;
 }
 
-double calculateByCurve(List<DataPoint> data, List<CurvePoint> curve, double mach) {
+double calculateByCurve(
+    List<DataPoint> data, List<CurvePoint> curve, double mach) {
   int numPoints = curve.length;
   int mlo = 0;
   int mhi = numPoints - 1;
@@ -781,5 +787,4 @@ double calculateByCurve(List<DataPoint> data, List<CurvePoint> curve, double mac
   int m = (data[mhi].A - mach) > (mach - data[mlo].A) ? mlo : mhi;
 
   return curve[m].C + mach * (curve[m].B + curve[m].A * mach);
-
 }

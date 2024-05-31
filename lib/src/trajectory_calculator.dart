@@ -146,18 +146,21 @@ class TrajectoryCalculator {
     }
 
     var rangesLength = (rangeTo / step).floor() + 1;
-    var ranges = List<TrajectoryData>.filled(rangesLength, TrajectoryData(
-      time: Timespan(0),
-      travelDistance: Distance(0, DistanceUnit.foot),
-      drop: Distance(0, DistanceUnit.foot),
-      dropAdjustment: Angular(0, AngularUnit.radian),
-      windage: Distance(0, DistanceUnit.foot),
-      windageAdjustment: Angular(0, AngularUnit.radian),
-      velocity: Velocity(0, VelocityUnit.fps),
-      mach: 0,
-      energy: Energy(0, EnergyUnit.footPound),
-      optimalGameWeight: Weight(0, WeightUnit.pound),
-    ), growable: true);
+    var ranges = List<TrajectoryData>.filled(
+        rangesLength,
+        TrajectoryData(
+          time: Timespan(0),
+          travelDistance: Distance(0, DistanceUnit.foot),
+          drop: Distance(0, DistanceUnit.foot),
+          dropAdjustment: Angular(0, AngularUnit.radian),
+          windage: Distance(0, DistanceUnit.foot),
+          windageAdjustment: Angular(0, AngularUnit.radian),
+          velocity: Velocity(0, VelocityUnit.fps),
+          mach: 0,
+          energy: Energy(0, EnergyUnit.footPound),
+          optimalGameWeight: Weight(0, WeightUnit.pound),
+        ),
+        growable: true);
 
     barrelAzimuth = 0.0;
     barrelElevation = shotInfo.sightAngle.into(AngularUnit.radian);
@@ -246,14 +249,11 @@ class TrajectoryCalculator {
 
         ranges[currentItem] = TrajectoryData(
           time: Timespan(time),
-          travelDistance:
-              Distance(rangeVector.X, DistanceUnit.foot),
-          drop: Distance( rangeVector.Y, DistanceUnit.foot),
-          dropAdjustment:
-              Angular( dropAdjustment, AngularUnit.radian),
+          travelDistance: Distance(rangeVector.X, DistanceUnit.foot),
+          drop: Distance(rangeVector.Y, DistanceUnit.foot),
+          dropAdjustment: Angular(dropAdjustment, AngularUnit.radian),
           windage: Distance(windage, DistanceUnit.foot),
-          windageAdjustment: Angular(
-              windageAdjustment, AngularUnit.radian),
+          windageAdjustment: Angular(windageAdjustment, AngularUnit.radian),
           velocity: Velocity(velocity, VelocityUnit.fps),
           mach: velocity / mach,
           energy: Energy(

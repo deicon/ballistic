@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:ballistic/src/bmath/bmath.dart';
 
-enum AngularUnit implements BaseUnit{
+enum AngularUnit implements BaseUnit {
   radian,
   degree,
   moa,
@@ -67,7 +67,7 @@ const String defaultUnitsError = "error: default units aren't correct";
 class Angular extends ValueWithUnit<AngularUnit> {
   Angular(super.value, super.unit);
 
-   Angular.zero() : super(0, AngularUnit.radian);
+  Angular.zero() : super(0, AngularUnit.radian);
 
   factory Angular.create(double value, AngularUnit unit) {
     return Angular(Angular.zero().convertToDefault(value), unit);
@@ -152,7 +152,6 @@ class Angular extends ValueWithUnit<AngularUnit> {
     // TODO: implement unitName
     throw UnimplementedError();
   }
-
 
   @override
   ValueWithUnit<AngularUnit> inUnits(AngularUnit units) {

@@ -1,6 +1,6 @@
 import 'unit.dart';
 
-enum WeightUnit implements BaseUnit{
+enum WeightUnit implements BaseUnit {
   grain,
   gram,
   kilogram,
@@ -50,7 +50,7 @@ enum WeightUnit implements BaseUnit{
 }
 
 /// Represents a weight value with a specific unit.
-class Weight extends ValueWithUnit< WeightUnit> {
+class Weight extends ValueWithUnit<WeightUnit> {
   Weight(super.value, super.unit);
 
   @override
@@ -102,13 +102,12 @@ class Weight extends ValueWithUnit< WeightUnit> {
   }
 
   @override
-  ValueWithUnit< WeightUnit> inUnits(WeightUnit units) {
+  ValueWithUnit<WeightUnit> inUnits(WeightUnit units) {
     return Weight(into(units), units);
   }
 
   @override
   String unitName() {
-   return unit.name;
+    return unit.name;
   }
-
 }

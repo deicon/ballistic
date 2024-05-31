@@ -4,6 +4,7 @@ import 'bmath/bmath.dart';
 class WindInfo {
   final Distance untilDistance;
   final Velocity velocity;
+
   /// Returns the wind direction.
   ///
   /// 0 degrees means wind blowing into the face
@@ -21,24 +22,29 @@ class WindInfo {
 
 /// CreateNoWind creates wind description with no wind
 List<WindInfo> createNoWind() {
-  return [WindInfo(
-    untilDistance: Distance(0, DistanceUnit.kilometer),
-    velocity: Velocity(0, VelocityUnit.mps),
-    direction: Angular(0, AngularUnit.degree),
-  )];
+  return [
+    WindInfo(
+      untilDistance: Distance(0, DistanceUnit.kilometer),
+      velocity: Velocity(0, VelocityUnit.mps),
+      direction: Angular(0, AngularUnit.degree),
+    )
+  ];
 }
 
 /// CreateOnlyWindInfo creates the wind information for the constant wind for the whole distance of the shot
 List<WindInfo> createOnlyWindInfo(Velocity windVelocity, Angular direction) {
-  return [WindInfo(
-    untilDistance: Distance(9999, DistanceUnit.kilometer),
-    velocity: windVelocity,
-    direction: direction,
-  )];
+  return [
+    WindInfo(
+      untilDistance: Distance(9999, DistanceUnit.kilometer),
+      velocity: windVelocity,
+      direction: direction,
+    )
+  ];
 }
 
 /// AddWindInfo creates description of one wind
-WindInfo addWindInfo(Distance untilRange, Velocity windVelocity, Angular direction) {
+WindInfo addWindInfo(
+    Distance untilRange, Velocity windVelocity, Angular direction) {
   return WindInfo(
     untilDistance: untilRange,
     velocity: windVelocity,

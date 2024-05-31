@@ -1,4 +1,3 @@
-
 import 'package:ballistic/ballistic.dart';
 
 enum DistanceUnit implements BaseUnit {
@@ -43,32 +42,31 @@ enum DistanceUnit implements BaseUnit {
 
   @override
   double fromDefault(double value, BaseUnit units) {
-      switch (units) {
-        case DistanceUnit.inch:
-          return value;
-        case DistanceUnit.foot:
-          return value / 12;
-        case DistanceUnit.yard:
-          return value / 36;
-        case DistanceUnit.mile:
-          return value / 63360;
-        case DistanceUnit.nauticalMile:
-          return value / 72913.3858;
-        case DistanceUnit.line:
-          return value * 10;
-        case DistanceUnit.millimeter:
-          return value * 25.4;
-        case DistanceUnit.centimeter:
-          return value * 2.54;
-        case DistanceUnit.meter:
-          return value * 25.4 / 1000;
-        case DistanceUnit.kilometer:
-          return value * 25.4 / 1000000;
-        default:
-          throw Exception('Distance: unit $units is not supported');
+    switch (units) {
+      case DistanceUnit.inch:
+        return value;
+      case DistanceUnit.foot:
+        return value / 12;
+      case DistanceUnit.yard:
+        return value / 36;
+      case DistanceUnit.mile:
+        return value / 63360;
+      case DistanceUnit.nauticalMile:
+        return value / 72913.3858;
+      case DistanceUnit.line:
+        return value * 10;
+      case DistanceUnit.millimeter:
+        return value * 25.4;
+      case DistanceUnit.centimeter:
+        return value * 2.54;
+      case DistanceUnit.meter:
+        return value * 25.4 / 1000;
+      case DistanceUnit.kilometer:
+        return value * 25.4 / 1000000;
+      default:
+        throw Exception('Distance: unit $units is not supported');
     }
   }
-
 }
 
 /// The Distance structure keeps the distance value.
@@ -153,6 +151,4 @@ class Distance extends ValueWithUnit<DistanceUnit> {
   String unitName() {
     return unit.name;
   }
-
-
 }

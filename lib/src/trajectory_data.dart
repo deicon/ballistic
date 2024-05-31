@@ -1,6 +1,5 @@
 import 'bmath/bmath.dart';
 
-
 /// Timespan keeps the amount of time spent
 class Timespan {
   final double time;
@@ -78,10 +77,8 @@ class TrajectoryData {
     return drop;
   }
 
-
   /// Energy returns the kinetic energy of the projectile
   Energy getEnergy() {
     return energy;
   }
-
 }

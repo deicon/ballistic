@@ -1,4 +1,3 @@
-
 import 'package:ballistic/src/projectile.dart';
 
 import 'atmosphere.dart';
@@ -30,7 +29,8 @@ class ZeroInfo {
   }
 
   /// Creates zero information using distance and conditions
-  factory ZeroInfo.createZeroInfoWithAtmosphere(Distance distance, Atmosphere atmosphere) {
+  factory ZeroInfo.createZeroInfoWithAtmosphere(
+      Distance distance, Atmosphere atmosphere) {
     return ZeroInfo(
       hasAmmunition: false,
       zeroDistance: distance,
@@ -40,7 +40,8 @@ class ZeroInfo {
   }
 
   /// Creates zero information using distance and other ammunition
-  factory ZeroInfo.createZeroInfoWithAnotherAmmo(Distance distance, Ammunition ammo) {
+  factory ZeroInfo.createZeroInfoWithAnotherAmmo(
+      Distance distance, Ammunition ammo) {
     return ZeroInfo(
       hasAmmunition: true,
       ammunition: ammo,
@@ -50,7 +51,8 @@ class ZeroInfo {
   }
 
   /// Creates zero information using distance, other conditions and other ammunition
-  factory ZeroInfo.createZeroInfoWithAnotherAmmoAndAtmosphere(Distance distance, Ammunition ammo, Atmosphere atmosphere) {
+  factory ZeroInfo.createZeroInfoWithAnotherAmmoAndAtmosphere(
+      Distance distance, Ammunition ammo, Atmosphere atmosphere) {
     return ZeroInfo(
       hasAmmunition: true,
       ammunition: ammo,
@@ -65,7 +67,6 @@ enum TwistDirection {
   left,
   right,
 }
-
 
 /// TwistInfo contains the rifling twist information
 ///
@@ -112,7 +113,6 @@ class Weapon {
     required this.clickValue,
   });
 
-
   /// Creates the weapon definition with no twist info
   ///
   /// If no twist info is set, spin drift won't be calculated
@@ -128,7 +128,8 @@ class Weapon {
   /// Creates weapon description with twist info
   ///
   /// If twist info AND bullet dimensions are set, spin drift will be calculated
-  factory Weapon.createWeaponWithTwist(Distance sightHeight, ZeroInfo zeroInfo, TwistInfo twist) {
+  factory Weapon.createWeaponWithTwist(
+      Distance sightHeight, ZeroInfo zeroInfo, TwistInfo twist) {
     return Weapon(
       sightHeight: sightHeight,
       zeroInfo: zeroInfo,

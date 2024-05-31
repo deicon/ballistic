@@ -44,13 +44,12 @@ class Atmosphere {
 
   factory Atmosphere.createDefaultAtmosphere() {
     var a = Atmosphere(
-      altitude: Distance(0, DistanceUnit.foot),
-      pressure:
-          Pressure(cStandardPressure, PressureUnit.inHgg),
-      temperature: Temperature(cStandardTemperature, TemperatureUnit.fahrenheit),
-      humidity: 0.78,
-      mach: zero
-    );
+        altitude: Distance(0, DistanceUnit.foot),
+        pressure: Pressure(cStandardPressure, PressureUnit.inHgg),
+        temperature:
+            Temperature(cStandardTemperature, TemperatureUnit.fahrenheit),
+        humidity: 0.78,
+        mach: zero);
     a.calculate();
     return a;
   }

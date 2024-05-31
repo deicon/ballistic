@@ -1,7 +1,7 @@
 // VelocityUnit is an enum representing different velocity units
 import 'unit.dart';
 
-enum VelocityUnit implements BaseUnit{
+enum VelocityUnit implements BaseUnit {
   mps,
   kmh,
   fps,
@@ -43,11 +43,10 @@ enum VelocityUnit implements BaseUnit{
         throw Exception("Velocity: unit $units is not supported");
     }
   }
-
 }
 
 // Velocity class represents a velocity value with units
-class Velocity extends ValueWithUnit< VelocityUnit>{
+class Velocity extends ValueWithUnit<VelocityUnit> {
   Velocity(super.value, super.unit);
 
   Velocity.inUnits(Velocity other, VelocityUnit unit)
@@ -96,7 +95,7 @@ class Velocity extends ValueWithUnit< VelocityUnit>{
   }
 
   @override
-  ValueWithUnit< VelocityUnit> inUnits(VelocityUnit units) {
+  ValueWithUnit<VelocityUnit> inUnits(VelocityUnit units) {
     return Velocity(into(units), units);
   }
 }
