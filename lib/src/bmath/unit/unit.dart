@@ -1,7 +1,7 @@
 export 'angular.dart';
 export 'distance.dart';
 export 'energy.dart';
-export 'temperatur.dart';
+export 'temperature.dart';
 export 'pressure.dart';
 export 'velocity.dart';
 export 'weight.dart';

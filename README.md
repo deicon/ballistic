@@ -1,39 +1,23 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+BallisticCalculator
+LGPL library for small arms ballistic calculations
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+The library provides trajectory calculation for projectiles including for various applications, including air rifles, bows, firearms, artillery and so on.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+3DF model that is used in this calculator is rooted in old C sources of version 2 of the public version of JBM calculator, ported to C#, optimized, fixed and extended with elements described in Litz's "Applied Ballistics" book and from the friendly project of Alexandre Trofimov and then ported to Go. 
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+The go version at https://github.com/gehtsoft-usa/go_ballisticcalc was used to port the code over to dart. 
 
-## Features
+The online version of Go documentation is located here: https://godoc.org/github.com/gehtsoft-usa/go_ballisticcalc
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+C# version of the package is located here: https://github.com/gehtsoft-usa/BallisticCalculator1
+Go version of the package is located here: https://github.com/gehtsoft-usa/go_ballisticcalc
 
-## Getting started
+The online version of C# API documentation is located here: https://gehtsoft-usa.github.io/BallisticCalculator/web-content.html
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+The current status of the project is ALPHA version.
 
-## Usage
+RISK NOTICE
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+The library performs very limited simulation of a complex physical process and so it performs a lot of approximations. Therefore the calculation results MUST NOT be considered as completely and reliably reflecting actual behavior or characteristics of projectiles. While these results may be used for educational purpose, they must NOT be considered as reliable for the areas where incorrect calculation may cause making a wrong decision, financial harm, or can put a human life at risk.
 
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+THE CODE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIALS OR THE USE OR OTHER DEALINGS IN THE MATERIALS.

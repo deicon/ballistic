@@ -1,5 +1,5 @@
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+
+import 'package:ballistic/ballistic.dart';
 
 enum DistanceUnit implements BaseUnit {
   inch,
@@ -80,7 +80,7 @@ class Distance extends ValueWithUnit<DistanceUnit> {
   @override
   String toString() {
     try {
-      final defaultValue = value;
+      final defaultValue = unit.fromDefault(value, unit);
       final accuracy = getAccuracy();
       return '${defaultValue.toStringAsFixed(accuracy)}${unitName()}';
     } catch (_) {

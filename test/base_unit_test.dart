@@ -1,7 +1,6 @@
-import 'package:jbmcalc/src/bmath/bmath.dart';
+import 'package:ballistic/src/bmath/bmath.dart';
 import 'package:test/test.dart';
 
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
 import 'package:test/scaffolding.dart';
 
 enum DemoUnit implements BaseUnit{

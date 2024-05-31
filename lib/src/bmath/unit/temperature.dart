@@ -1,7 +1,6 @@
 import 'dart:core';
 
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'unit.dart';
 
 enum TemperatureUnit implements BaseUnit{
   fahrenheit,
@@ -55,7 +54,7 @@ class Temperature extends ValueWithUnit< TemperatureUnit>{
   @override
   String toString() {
     try {
-      double x = value;
+      double x = unit.fromDefault(value, unit);
       String unitName;
       int accuracy;
       switch (unit) {

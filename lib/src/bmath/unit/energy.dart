@@ -1,7 +1,6 @@
 // EnergyUnit.dart
 
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'unit.dart';
 
 enum EnergyUnit implements BaseUnit {
   footPound,
@@ -33,22 +32,20 @@ enum EnergyUnit implements BaseUnit {
 }
 
 class Energy extends ValueWithUnit<EnergyUnit> {
-  static const int energyFootPound = 30;
-  static const int energyJoule = 31;
-
   Energy(super.value, super.unit);
 
   @override
   String toString() {
     try {
+      double value = unit.fromDefault(this.value, unit);
       String unitName;
       int accuracy;
-      switch (value) {
-        case energyFootPound:
+      switch (unit) {
+        case EnergyUnit.footPound:
           unitName = 'ft·lb';
           accuracy = 0;
           break;
-        case energyJoule:
+        case EnergyUnit.joule:
           unitName = 'J';
           accuracy = 0;
           break;

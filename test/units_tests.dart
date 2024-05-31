@@ -1,4 +1,6 @@
-import 'package:jbmcalc/src/bmath/bmath.dart';
+//ignore_for_file: prefer_typing_uninitialized_variables
+
+import 'package:ballistic/src/bmath/bmath.dart';
 import 'package:test/test.dart';
 
 

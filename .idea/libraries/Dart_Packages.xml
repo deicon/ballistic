@@ -12,7 +12,7 @@
         <entry key="_macros">
           <value>
             <list>
-              <option value="/opt/homebrew/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
+              <option value="$PROJECT_DIR$/../../../../flutter/flutter/bin/cache/dart-sdk/pkg/_macros/lib" />
             </list>
           </value>
         </entry>
@@ -404,7 +404,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/web_socket_channel-3.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webkit_inspection_protocol-1.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/yaml-3.1.2/lib" />
-      <root url="file:///opt/homebrew/Cellar/dart/3.4.1/libexec/pkg/_macros/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../flutter/flutter/bin/cache/dart-sdk/pkg/_macros/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

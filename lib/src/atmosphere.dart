@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:jbmcalc/src/bmath/unit/distance.dart';
-import 'package:jbmcalc/src/bmath/unit/pressure.dart';
-import 'package:jbmcalc/src/bmath/unit/temperatur.dart';
-import 'package:jbmcalc/src/bmath/unit/velocity.dart';
+import 'package:ballistic/src/bmath/unit/distance.dart';
+import 'package:ballistic/src/bmath/unit/pressure.dart';
+import 'package:ballistic/src/bmath/unit/temperature.dart';
+import 'package:ballistic/src/bmath/unit/velocity.dart';
 
 const double cIcaoStandardTemperatureR = 518.67;
 const double cIcaoFreezingPointTemperatureR = 459.67;
@@ -129,7 +129,7 @@ class Atmosphere {
 
   Velocity getMach() => mach;
 
-  void calculate0(double t, double p) {
+  List<dynamic> calculate0(double t, double p) {
     double hc, et, et0, density, mach;
 
     if (t > 0.0) {
@@ -144,14 +144,18 @@ class Atmosphere {
         hc;
     mach = sqrt(t + cIcaoFreezingPointTemperatureR) * cSpeedOfSound;
     density = density;
-    mach1 = mach;
-    this.mach = Velocity(mach, VelocityUnit.fps);
+
+    return [density, mach];
   }
 
   void calculate() {
     var t = temperature.into(TemperatureUnit.fahrenheit);
     var p = pressure.into(PressureUnit.inHgg);
-    calculate0(t, p);
+    var result = calculate0(t, p);
+
+    density = result[0];
+    mach1 = result[1];
+    mach = Velocity(mach1, VelocityUnit.fps);
   }
 
   List<double> getDensityFactorAndMachForAltitude(double altitude) {
@@ -177,8 +181,9 @@ class Atmosphere {
     t = t0 + ta - tb;
     p = p * pow(t0 / t, cPressureExponent);
 
-    calculate0(t, p);
-
+    var result = calculate0(t, p);
+    density = result[0];
+    mach = result[1];
     return [density / cStandardDensity, mach];
   }
 }

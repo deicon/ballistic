@@ -1,5 +1,4 @@
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'package:ballistic/src/bmath/unit/base_unit.dart';
 
 // Measurements are represented as a value with a unit.
 // Values are saved as default unit

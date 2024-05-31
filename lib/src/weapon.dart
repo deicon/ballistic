@@ -1,5 +1,5 @@
 
-import 'package:jbmcalc/src/projectile.dart';
+import 'package:ballistic/src/projectile.dart';
 
 import 'atmosphere.dart';
 import 'bmath/unit/unit.dart';

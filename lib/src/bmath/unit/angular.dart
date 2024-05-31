@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:jbmcalc/src/bmath/bmath.dart';
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'package:ballistic/src/bmath/bmath.dart';
 
 enum AngularUnit implements BaseUnit{
   radian,

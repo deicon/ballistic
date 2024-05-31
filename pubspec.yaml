@@ -1,14 +1,15 @@
-name: jbmcalc
-description: A starting point for Dart libraries or applications.
+name: ballistic
+description: Dart port of the free JBM Ballistic Calculator at https://www.jbmballistics.com/ballistics/downloads/downloads.shtml. |
+  Calculation of the bullet trajectory in flight, bullet drop, bullet path, bullet velocity, wind deflection, and terminal velocity in a 2D environment. |
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/deicon/ballistic
 
 environment:
   sdk: ^3.4.0
 
 # Add regular dependencies here.
 dependencies:
-  # path: ^1.8.0
+  matcher: ^0.12.10
 
 dev_dependencies:
   lints: ^4.0.0

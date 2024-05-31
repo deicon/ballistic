@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:jbmcalc/src/atmosphere.dart';
-import 'package:jbmcalc/src/projectile.dart';
-import 'package:jbmcalc/src/shot_parameters.dart';
-import 'package:jbmcalc/src/trajectory_data.dart';
-import 'package:jbmcalc/src/weapon.dart';
-import 'package:jbmcalc/src/wind.dart';
+import 'package:ballistic/src/atmosphere.dart';
+import 'package:ballistic/src/projectile.dart';
+import 'package:ballistic/src/shot_parameters.dart';
+import 'package:ballistic/src/trajectory_data.dart';
+import 'package:ballistic/src/weapon.dart';
+import 'package:ballistic/src/wind.dart';
 
 import 'bmath/bmath.dart';
 
@@ -96,7 +96,7 @@ class TrajectoryCalculator {
         drag = ballisticFactor *
             densityFactor *
             velocity *
-            bullet.ballisticCoefficient.drag(velocity / mach);
+            bullet.ballisticCoefficient.getDrag(velocity / mach);
         velocityVector = velocityVector.subtract(
             (velocityVector.multiplyByConst(drag).subtract(gravityVector))
                 .multiplyByConst(deltaTime));
@@ -145,8 +145,19 @@ class TrajectoryCalculator {
       calculateDrift = true;
     }
 
-    // var rangesLength = (rangeTo / step).floor() + 1;
-    var ranges = <TrajectoryData>[];
+    var rangesLength = (rangeTo / step).floor() + 1;
+    var ranges = List<TrajectoryData>.filled(rangesLength, TrajectoryData(
+      time: Timespan(0),
+      travelDistance: Distance(0, DistanceUnit.foot),
+      drop: Distance(0, DistanceUnit.foot),
+      dropAdjustment: Angular(0, AngularUnit.radian),
+      windage: Distance(0, DistanceUnit.foot),
+      windageAdjustment: Angular(0, AngularUnit.radian),
+      velocity: Velocity(0, VelocityUnit.fps),
+      mach: 0,
+      energy: Energy(0, EnergyUnit.footPound),
+      optimalGameWeight: Weight(0, WeightUnit.pound),
+    ), growable: true);
 
     barrelAzimuth = 0.0;
     barrelElevation = shotInfo.sightAngle.into(AngularUnit.radian);
@@ -259,14 +270,16 @@ class TrajectoryCalculator {
 
       deltaTime = calculationStep / velocityVector.X;
       velocityAdjusted = velocityVector.subtract(windVector);
+
       velocity = velocityAdjusted.magnitude();
       drag = ballisticFactor *
           densityFactor *
           velocity *
-          bullet.ballisticCoefficient.drag(velocity / mach);
+          bullet.ballisticCoefficient.getDrag(velocity / mach);
       velocityVector = velocityVector.subtract(
           (velocityAdjusted.multiplyByConst(drag).subtract(gravityVector))
               .multiplyByConst(deltaTime));
+
       deltaRangeVector = Vector(calculationStep, velocityVector.Y * deltaTime,
           velocityVector.Z * deltaTime);
       rangeVector = rangeVector.add(deltaRangeVector);
@@ -328,53 +341,6 @@ class TrajectoryCalculator {
   double calculateOgv(double bulletWeight, double velocity) {
     return pow(bulletWeight, 2) * pow(velocity, 3) * 1.5e-12;
   }
-}
-
-class Bullet {
-  final Weight bulletWeight;
-  final Distance bulletDiameter;
-  final Distance bulletLength;
-  final BallisticCoefficient ballisticCoefficient;
-
-  Bullet(this.bulletWeight, this.bulletDiameter, this.bulletLength,
-      this.ballisticCoefficient);
-
-  bool hasDimensions() {
-    // Implement logic to check if bullet has dimensions
-    // ...
-    return true; // Placeholder
-  }
-
-  double getBallisticCoefficient() {
-    // Implement logic to get ballistic coefficient
-    // ...
-    return ballisticCoefficient.value; // Placeholder
-  }
-}
-
-class BallisticCoefficient {
-  final double value;
-
-  BallisticCoefficient(this.value);
-
-  double drag(double mach) {
-    // Implement drag function based on mach number
-    // ...
-    return 0.0; // Placeholder
-  }
-}
-
-Tuple2<double, double> getDensityFactorAndMachForAltitude(double altitude) {
-  // Implement logic to get density factor and mach for given altitude
-  // ...
-  return Tuple2(1.0, 1.0); // Placeholder
-}
-
-class Tuple2<T1, T2> {
-  final T1 item1;
-  final T2 item2;
-
-  Tuple2(this.item1, this.item2);
 }
 
 // Constants

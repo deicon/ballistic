@@ -1,9 +1,9 @@
 import 'dart:math';
 
-import 'package:jbmcalc/src/bmath/unit/distance.dart';
-import 'package:jbmcalc/src/bmath/unit/velocity.dart';
-import 'package:jbmcalc/src/bmath/unit/weight.dart';
-import 'package:jbmcalc/src/drag.dart';
+import 'package:ballistic/src/bmath/unit/distance.dart';
+import 'package:ballistic/src/bmath/unit/velocity.dart';
+import 'package:ballistic/src/bmath/unit/weight.dart';
+import 'package:ballistic/src/drag.dart';
 
 Distance zeroDistance = Distance(0.0, DistanceUnit.millimeter);
 

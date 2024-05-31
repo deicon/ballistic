@@ -1,6 +1,5 @@
 // VelocityUnit is an enum representing different velocity units
-import 'package:jbmcalc/src/bmath/bmath.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'unit.dart';
 
 enum VelocityUnit implements BaseUnit{
   mps,
@@ -57,7 +56,7 @@ class Velocity extends ValueWithUnit< VelocityUnit>{
   @override
   String toString() {
     try {
-      double x = value;
+      double x = unit.fromDefault(value, unit);
       String unitName;
       int accuracy;
       switch (unit) {

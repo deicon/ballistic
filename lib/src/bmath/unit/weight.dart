@@ -1,5 +1,4 @@
-import 'package:jbmcalc/src/bmath/bmath.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'unit.dart';
 
 enum WeightUnit implements BaseUnit{
   grain,
@@ -56,10 +55,10 @@ class Weight extends ValueWithUnit< WeightUnit> {
 
   @override
   String toString() {
-    final convertedValue = value;
+    double x = unit.fromDefault(value, unit);
     final unitName = getUnitName(unit);
     final accuracy = getUnitAccuracy(unit);
-    return convertedValue.toStringAsFixed(accuracy) + unitName;
+    return '${x.toStringAsFixed(accuracy)}$unitName';
   }
 
   /// Returns the unit name for the given unit.

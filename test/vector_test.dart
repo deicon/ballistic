@@ -1,4 +1,4 @@
-import 'package:jbmcalc/src/bmath/vector/vector.dart';
+import 'package:ballistic/src/bmath/vector/vector.dart';
 import 'package:test/test.dart';
 
 void main() {

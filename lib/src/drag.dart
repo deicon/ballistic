@@ -225,6 +225,7 @@ List<DataPoint> g1Table = [
 
 List<CurvePoint> g1Curve = calculateCurve(g1Table);
 
+
 List<DataPoint> g7Table = [
   DataPoint(A: 0.00, B: 0.1198),
   DataPoint(A: 0.05, B: 0.1197),
@@ -780,4 +781,5 @@ double calculateByCurve(List<DataPoint> data, List<CurvePoint> curve, double mac
   int m = (data[mhi].A - mach) > (mach - data[mlo].A) ? mlo : mhi;
 
   return curve[m].C + mach * (curve[m].B + curve[m].A * mach);
+
 }

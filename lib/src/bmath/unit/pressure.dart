@@ -1,5 +1,4 @@
-import 'package:jbmcalc/src/bmath/unit/base_unit.dart';
-import 'package:jbmcalc/src/bmath/unit/value_with_unit.dart';
+import 'unit.dart';
 
 enum PressureUnit implements BaseUnit {
   mmHg,
@@ -45,15 +44,14 @@ enum PressureUnit implements BaseUnit {
   }
 }
 
-
 // Pressure structure keeps information about atmospheric pressure
-class Pressure extends ValueWithUnit< PressureUnit>{
+class Pressure extends ValueWithUnit<PressureUnit> {
   Pressure(super.value, super.unit);
 
   @override
   String toString() {
     try {
-      final x = value;
+      final x = unit.fromDefault(value, unit);
       String unitName;
       int accuracy;
       switch (unit) {
@@ -90,7 +88,7 @@ class Pressure extends ValueWithUnit< PressureUnit>{
   }
 
   @override
-  ValueWithUnit< PressureUnit> inUnits(PressureUnit units) {
+  ValueWithUnit<PressureUnit> inUnits(PressureUnit units) {
     return Pressure(into(units), units);
   }
 
@@ -98,5 +96,4 @@ class Pressure extends ValueWithUnit< PressureUnit>{
   String unitName() {
     return unit.name;
   }
-
 }
