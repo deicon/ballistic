@@ -13,5 +13,4 @@ export 'src/trajectory_data.dart';
 export 'src/weapon.dart';
 export 'src/wind.dart';
 
-
 // TODO: Export any libraries intended for clients of this package.
