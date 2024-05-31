@@ -1,6 +1,5 @@
 name: ballistic
-description: Dart port of the free JBM Ballistic Calculator at https://www.jbmballistics.com/ballistics/downloads/downloads.shtml. |
-  Calculation of the bullet trajectory in flight, bullet drop, bullet path, bullet velocity, wind deflection, and terminal velocity in a 2D environment. |
+description: Calculation of the bullet trajectory in flight, bullet drop, bullet path, bullet velocity, wind deflection, and terminal velocity in a 2D environment. |
 version: 1.0.0
 repository: https://github.com/deicon/ballistic
 
