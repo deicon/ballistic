@@ -6,7 +6,11 @@ abstract class ValueWithUnit<T extends BaseUnit> {
   final double value;
   final T unit;
 
-  ValueWithUnit(double value, this.unit) : value = unit.toDefault(value);
+  // creates value with unit, converting value into default unit
+  ValueWithUnit(double value, this.unit, {bool convert = true}) : value = convert ? unit.toDefault(value) : value;
+
+  // creates value with unit, assuming value is already in default unit
+  const ValueWithUnit.createWithValueInDefaultUnit(this.value, this.unit);
 
   ValueWithUnit<T> inUnits(T units);
 

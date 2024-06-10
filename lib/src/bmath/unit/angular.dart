@@ -65,7 +65,7 @@ const String defaultUnitsError = "error: default units aren't correct";
 
 // Angular structure keeps information about angular units
 class Angular extends ValueWithUnit<AngularUnit> {
-  Angular(super.value, super.unit);
+  Angular(super.value, super.unit, {super.convert});
 
   Angular.zero() : super(0, AngularUnit.radian);
 

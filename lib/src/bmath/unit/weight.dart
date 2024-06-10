@@ -51,7 +51,7 @@ enum WeightUnit implements BaseUnit {
 
 /// Represents a weight value with a specific unit.
 class Weight extends ValueWithUnit<WeightUnit> {
-  Weight(super.value, super.unit);
+  Weight(super.value, super.unit, {super.convert});
 
   @override
   String toString() {

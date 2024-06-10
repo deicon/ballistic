@@ -46,7 +46,7 @@ enum PressureUnit implements BaseUnit {
 
 // Pressure structure keeps information about atmospheric pressure
 class Pressure extends ValueWithUnit<PressureUnit> {
-  Pressure(super.value, super.unit);
+  Pressure(super.value, super.unit, {super.convert});
 
   @override
   String toString() {

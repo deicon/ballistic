@@ -71,7 +71,7 @@ enum DistanceUnit implements BaseUnit {
 
 /// The Distance structure keeps the distance value.
 class Distance extends ValueWithUnit<DistanceUnit> {
-  Distance(super.value, super.unit);
+  Distance(super.value, super.unit, {super.convert});
 
   Distance.zero() : super(0.0, DistanceUnit.meter);
 

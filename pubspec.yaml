@@ -1,6 +1,6 @@
 name: ballistic
 description: Calculation of the bullet trajectory in flight, bullet drop, bullet path, bullet velocity, wind deflection, and terminal velocity in a 2D environment. |
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/deicon/ballistic
 
 environment:

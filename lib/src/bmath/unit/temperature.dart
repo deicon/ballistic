@@ -43,7 +43,7 @@ enum TemperatureUnit implements BaseUnit {
 
 /// Temperature class keeps information about the temperature
 class Temperature extends ValueWithUnit<TemperatureUnit> {
-  Temperature(super.value, super.unit);
+  Temperature(super.value, super.unit, {super.convert});
   Temperature.inUnit(Temperature other, TemperatureUnit unit)
       : super(other.into(unit), unit);
 

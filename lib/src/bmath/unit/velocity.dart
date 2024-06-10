@@ -47,7 +47,7 @@ enum VelocityUnit implements BaseUnit {
 
 // Velocity class represents a velocity value with units
 class Velocity extends ValueWithUnit<VelocityUnit> {
-  Velocity(super.value, super.unit);
+  Velocity(super.value, super.unit, {super.convert});
 
   Velocity.inUnits(Velocity other, VelocityUnit unit)
       : super(other.into(unit), unit);

@@ -32,7 +32,7 @@ enum EnergyUnit implements BaseUnit {
 }
 
 class Energy extends ValueWithUnit<EnergyUnit> {
-  Energy(super.value, super.unit);
+  Energy(super.value, super.unit, {super.convert});
 
   @override
   String toString() {
