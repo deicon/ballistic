@@ -29,6 +29,9 @@ abstract class ValueWithUnit<T extends BaseUnit> {
   }
 
   String unitName();
+  
+  // value that matches the unit, ie not in default units
+  double get unitValue => unit.fromDefault(value, unit);
 
   @override
   String toString() {

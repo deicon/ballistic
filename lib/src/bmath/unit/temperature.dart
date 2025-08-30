@@ -14,7 +14,7 @@ enum TemperatureUnit implements BaseUnit {
       case TemperatureUnit.fahrenheit:
         return value;
       case TemperatureUnit.rankin:
-        return value + 459.67;
+        return value - 459.67;
       case TemperatureUnit.celsius:
         return value * 9 / 5 + 32;
       case TemperatureUnit.kelvin:
@@ -30,7 +30,7 @@ enum TemperatureUnit implements BaseUnit {
       case TemperatureUnit.fahrenheit:
         return value;
       case TemperatureUnit.rankin:
-        return value - 459.67;
+        return value + 459.67;
       case TemperatureUnit.celsius:
         return (value - 32) * 5 / 9;
       case TemperatureUnit.kelvin:

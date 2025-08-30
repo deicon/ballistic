@@ -14,15 +14,15 @@ enum WeightUnit implements BaseUnit {
       case WeightUnit.grain:
         return value;
       case WeightUnit.gram:
-        return value / 15.4323584;
+        return value * 15.4323584;
       case WeightUnit.kilogram:
-        return value / 15432.3584;
+        return value * 15432.3584;
       case WeightUnit.newton:
-        return value / 151339.73750336;
+        return value * 151339.73750336;
       case WeightUnit.pound:
-        return value * 0.000142857143;
+        return value / 0.000142857143;
       case WeightUnit.ounce:
-        return value / 437.5;
+        return value * 437.5;
       default:
         throw ArgumentError('Weight: unit $this is not supported');
     }
@@ -34,15 +34,15 @@ enum WeightUnit implements BaseUnit {
       case WeightUnit.grain:
         return value;
       case WeightUnit.gram:
-        return value * 15.4323584;
+        return value / 15.4323584;
       case WeightUnit.kilogram:
-        return value * 15432.3584;
+        return value / 15432.3584;
       case WeightUnit.newton:
-        return value * 151339.73750336;
+        return value / 151339.73750336;
       case WeightUnit.pound:
-        return value / 0.000142857143;
+        return value * 0.000142857143;
       case WeightUnit.ounce:
-        return value * 437.5;
+        return value / 437.5;
       default:
         throw ArgumentError('Weight: unit $units is not supported');
     }
