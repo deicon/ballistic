@@ -12,7 +12,7 @@ enum EnergyUnit implements BaseUnit {
       case EnergyUnit.footPound:
         return value;
       case EnergyUnit.joule:
-        return value / 0.737562149277;
+        return value * 0.737562149277;
       default:
         throw ArgumentError('Energy: unit $this is not supported');
     }
@@ -24,7 +24,7 @@ enum EnergyUnit implements BaseUnit {
       case EnergyUnit.footPound:
         return value;
       case EnergyUnit.joule:
-        return value * 0.737562149277;
+        return value / 0.737562149277;
       default:
         throw ArgumentError('Energy: unit $units is not supported');
     }
