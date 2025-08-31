@@ -19,13 +19,11 @@ enum TemperatureUnit implements BaseUnit {
         return value * 9 / 5 + 32;
       case TemperatureUnit.kelvin:
         return (value - 273.15) * 9 / 5 + 32;
-      default:
-        throw Exception('Temperature: unit $this is not supported');
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant TemperatureUnit units) {
     switch (units) {
       case TemperatureUnit.fahrenheit:
         return value;
@@ -35,8 +33,6 @@ enum TemperatureUnit implements BaseUnit {
         return (value - 32) * 5 / 9;
       case TemperatureUnit.kelvin:
         return (value - 32) * 5 / 9 + 273.15;
-      default:
-        throw Exception('Temperature: unit $units is not supported');
     }
   }
 }
@@ -70,9 +66,6 @@ class Temperature extends ValueWithUnit<TemperatureUnit> {
           unitName = '°K';
           accuracy = 1;
           break;
-        default:
-          unitName = '?';
-          accuracy = 6;
       }
       return '${x.toStringAsFixed(accuracy)}$unitName';
     } catch (e) {

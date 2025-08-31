@@ -23,13 +23,11 @@ enum WeightUnit implements BaseUnit {
         return value / 0.000142857143;
       case WeightUnit.ounce:
         return value * 437.5;
-      default:
-        throw ArgumentError('Weight: unit $this is not supported');
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant WeightUnit units) {
     switch (units) {
       case WeightUnit.grain:
         return value;
@@ -43,8 +41,6 @@ enum WeightUnit implements BaseUnit {
         return value * 0.000142857143;
       case WeightUnit.ounce:
         return value / 437.5;
-      default:
-        throw ArgumentError('Weight: unit $units is not supported');
     }
   }
 }
@@ -76,8 +72,6 @@ class Weight extends ValueWithUnit<WeightUnit> {
         return 'lb';
       case WeightUnit.ounce:
         return 'oz';
-      default:
-        return '?';
     }
   }
 
@@ -96,8 +90,6 @@ class Weight extends ValueWithUnit<WeightUnit> {
         return 3;
       case WeightUnit.ounce:
         return 1;
-      default:
-        return 6;
     }
   }
 

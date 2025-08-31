@@ -35,13 +35,11 @@ enum DistanceUnit implements BaseUnit {
         return value / 25.4 * 1000;
       case DistanceUnit.kilometer:
         return value / 25.4 * 1000000;
-      default:
-        throw Exception('Distance: unit $this is not supported');
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant DistanceUnit units) {
     switch (units) {
       case DistanceUnit.inch:
         return value;
@@ -63,8 +61,6 @@ enum DistanceUnit implements BaseUnit {
         return value * 25.4 / 1000;
       case DistanceUnit.kilometer:
         return value * 25.4 / 1000000;
-      default:
-        throw Exception('Distance: unit $units is not supported');
     }
   }
 }
@@ -109,8 +105,6 @@ class Distance extends ValueWithUnit<DistanceUnit> {
         return "m";
       case DistanceUnit.kilometer:
         return "km";
-      default:
-        return "?";
     }
   }
 
@@ -137,8 +131,6 @@ class Distance extends ValueWithUnit<DistanceUnit> {
         return 2;
       case DistanceUnit.kilometer:
         return 3;
-      default:
-        return 6;
     }
   }
 
