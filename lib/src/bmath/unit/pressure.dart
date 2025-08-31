@@ -20,13 +20,11 @@ enum PressureUnit implements BaseUnit {
         return value * 750.061683 / 1000;
       case PressureUnit.psi:
         return value * 51.714924102396;
-      default:
-        throw Exception("Pressure: unit $this is not supported");
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant PressureUnit units) {
     switch (units) {
       case PressureUnit.mmHg:
         return value;
@@ -38,8 +36,6 @@ enum PressureUnit implements BaseUnit {
         return value / 750.061683 * 1000;
       case PressureUnit.psi:
         return value / 51.714924102396;
-      default:
-        throw Exception("Pressure: unit $units is not supported");
     }
   }
 }
@@ -74,10 +70,6 @@ class Pressure extends ValueWithUnit<PressureUnit> {
         case PressureUnit.psi:
           unitName = "psi";
           accuracy = 4;
-          break;
-        default:
-          unitName = "?";
-          accuracy = 6;
           break;
       }
       final format = "${x.toStringAsFixed(accuracy)}$unitName";

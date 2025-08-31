@@ -21,13 +21,11 @@ enum VelocityUnit implements BaseUnit {
         return value / 2.23693629;
       case VelocityUnit.kt:
         return value / 1.94384449;
-      default:
-        throw Exception("Velocity: unit $this is not supported");
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant VelocityUnit units) {
     switch (units) {
       case VelocityUnit.mps:
         return value;
@@ -39,8 +37,6 @@ enum VelocityUnit implements BaseUnit {
         return value * 2.23693629;
       case VelocityUnit.kt:
         return value * 1.94384449;
-      default:
-        throw Exception("Velocity: unit $units is not supported");
     }
   }
 }
@@ -79,9 +75,6 @@ class Velocity extends ValueWithUnit<VelocityUnit> {
           unitName = "kt";
           accuracy = 1;
           break;
-        default:
-          unitName = "?";
-          accuracy = 6;
       }
       return "${x.toStringAsFixed(accuracy)}$unitName";
     } catch (e) {

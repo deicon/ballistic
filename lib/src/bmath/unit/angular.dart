@@ -31,13 +31,11 @@ enum AngularUnit implements BaseUnit {
         return atan(value / 3600);
       case AngularUnit.cmPer100M:
         return atan(value / 10000);
-      default:
-        throw ArgumentError("Angular: unit $this is not supported");
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant AngularUnit units) {
     switch (units) {
       case AngularUnit.radian:
         return value;
@@ -55,8 +53,6 @@ enum AngularUnit implements BaseUnit {
         return tan(value) * 3600;
       case AngularUnit.cmPer100M:
         return tan(value) * 10000;
-      default:
-        throw ArgumentError("Angular: unit $this is not supported");
     }
   }
 }
@@ -116,9 +112,6 @@ class Angular extends ValueWithUnit<AngularUnit> {
         unitName = "cm/100m";
         accuracy = 2;
         break;
-      default:
-        unitName = "?";
-        accuracy = 6;
     }
     return "${x.toStringAsFixed(accuracy)}$unitName";
   }
@@ -142,8 +135,6 @@ class Angular extends ValueWithUnit<AngularUnit> {
         return atan(value / 3600);
       case AngularUnit.cmPer100M:
         return atan(value / 10000);
-      default:
-        throw ArgumentError("Angular: unit $unit is not supported");
     }
   }
 

@@ -13,20 +13,16 @@ enum EnergyUnit implements BaseUnit {
         return value;
       case EnergyUnit.joule:
         return value * 0.737562149277;
-      default:
-        throw ArgumentError('Energy: unit $this is not supported');
     }
   }
 
   @override
-  double fromDefault(double value, BaseUnit units) {
+  double fromDefault(double value, covariant EnergyUnit units) {
     switch (units) {
       case EnergyUnit.footPound:
         return value;
       case EnergyUnit.joule:
         return value / 0.737562149277;
-      default:
-        throw ArgumentError('Energy: unit $units is not supported');
     }
   }
 }
@@ -49,9 +45,6 @@ class Energy extends ValueWithUnit<EnergyUnit> {
           unitName = 'J';
           accuracy = 0;
           break;
-        default:
-          unitName = '?';
-          accuracy = 6;
       }
       String format = '${value.toStringAsFixed(accuracy)}$unitName';
       return format;
