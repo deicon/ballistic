@@ -82,3 +82,82 @@ class TrajectoryData {
     return energy;
   }
 }
+
+extension TrajectoryDataInterpolation on List<TrajectoryData> {
+  TrajectoryData interpolate(Distance travelDistance) {
+    for (final (a, b) in pairwise(this)) {
+      final da = a.travelDistance.value;
+      final db = b.travelDistance.value;
+      final dt = travelDistance.value;
+      final inRange = da <= dt && db >= dt;
+      if (!inRange) continue;
+
+      t(double a, double b) => lerp(a, b, da, db, dt);
+
+      return TrajectoryData(
+        time: Timespan(t(a.time.time, b.time.time)),
+        travelDistance: Distance(
+          t(a.travelDistance.value, b.travelDistance.value),
+          a.travelDistance.unit,
+          convert: false,
+        ),
+        velocity: Velocity(
+          t(a.velocity.value, b.velocity.value),
+          a.velocity.unit,
+          convert: false,
+        ),
+        mach: t(a.mach, b.mach),
+        drop: Distance(
+          t(a.drop.value, b.drop.value),
+          a.drop.unit,
+          convert: false,
+        ),
+        dropAdjustment: Angular(
+          t(a.dropAdjustment.value, b.dropAdjustment.value),
+          a.dropAdjustment.unit,
+          convert: false,
+        ),
+        windage: Distance(
+          t(a.windage.value, b.windage.value),
+          a.windage.unit,
+          convert: false,
+        ),
+        windageAdjustment: Angular(
+          t(a.windageAdjustment.value, b.windageAdjustment.value),
+          a.windageAdjustment.unit,
+          convert: false,
+        ),
+        energy: Energy(
+          t(a.energy.value, b.energy.value),
+          a.energy.unit,
+          convert: false,
+        ),
+        optimalGameWeight: Weight(
+          t(a.optimalGameWeight.value, b.optimalGameWeight.value),
+          a.optimalGameWeight.unit,
+          convert: false,
+        ),
+      );
+    }
+
+    throw RangeError('reference point is out of bounds');
+  }
+
+  // visible for testing
+  static List<(T, T)> pairwise<T>(List<T> source) {
+    return [
+      for (var i = 0; i < source.length - 1; i++)
+        (
+          source[i],
+          source[i + 1],
+        )
+    ];
+  }
+
+  // visible for testing
+  static double lerp(double y1, double y2, double x1, double x2, double x) {
+    if (x < x1) throw RangeError("x must be greater than x1");
+    if (x > x2) throw RangeError("x must be less than x2");
+    return y1 + (y2 - y1) / (x2 - x1) * (x - x1);
+  }
+}
