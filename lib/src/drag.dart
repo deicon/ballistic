@@ -7,6 +7,7 @@ enum DragTableId {
   g8,
   gS,
   gC,
+  ra4,
 }
 
 typedef DragFunction = double Function(double mach);
@@ -76,8 +77,10 @@ DragFunction dragFunctionFactory(DragTableId dragTable) {
       return (mach) => calculateByCurve(g8Table, g8Curve, mach);
     case DragTableId.gS:
       return (mach) => calculateByCurve(gSTable, gSCurve, mach);
-    default:
-      throw ArgumentError('Unknown drag table type');
+    case DragTableId.gC:
+      throw UnimplementedError('$dragTable not implemented');
+    case DragTableId.ra4:
+      return (mach) => calculateByCurve(ra4Table, ra4Curve, mach);
   }
 }
 
@@ -741,6 +744,99 @@ List<DataPoint> gSTable = [
 ];
 
 List<CurvePoint> gSCurve = calculateCurve(gSTable);
+
+// source: https://jbmballistics.com/ballistics/downloads/downloads.shtml
+List<DataPoint> ra4Table = [
+  DataPoint(A: 0.000, B: 0.2283),
+  DataPoint(A: 0.050, B: 0.2283),
+  DataPoint(A: 0.100, B: 0.2282),
+  DataPoint(A: 0.150, B: 0.2281),
+  DataPoint(A: 0.200, B: 0.2281),
+  DataPoint(A: 0.250, B: 0.2281),
+  DataPoint(A: 0.300, B: 0.2281),
+  DataPoint(A: 0.350, B: 0.2281),
+  DataPoint(A: 0.400, B: 0.2281),
+  DataPoint(A: 0.450, B: 0.2281),
+  DataPoint(A: 0.500, B: 0.2281),
+  DataPoint(A: 0.550, B: 0.2281),
+  DataPoint(A: 0.600, B: 0.2281),
+  DataPoint(A: 0.650, B: 0.2281),
+  DataPoint(A: 0.700, B: 0.2288),
+  DataPoint(A: 0.725, B: 0.2296),
+  DataPoint(A: 0.750, B: 0.2307),
+  DataPoint(A: 0.775, B: 0.2320),
+  DataPoint(A: 0.800, B: 0.2334),
+  DataPoint(A: 0.825, B: 0.2359),
+  DataPoint(A: 0.850, B: 0.2389),
+  DataPoint(A: 0.875, B: 0.2480),
+  DataPoint(A: 0.900, B: 0.2604),
+  DataPoint(A: 0.925, B: 0.2819),
+  DataPoint(A: 0.950, B: 0.3111),
+  DataPoint(A: 0.975, B: 0.3496),
+  DataPoint(A: 1.000, B: 0.3975),
+  DataPoint(A: 1.025, B: 0.4530),
+  DataPoint(A: 1.050, B: 0.5010),
+  DataPoint(A: 1.075, B: 0.5476),
+  DataPoint(A: 1.100, B: 0.5719),
+  DataPoint(A: 1.125, B: 0.5895),
+  DataPoint(A: 1.150, B: 0.5943),
+  DataPoint(A: 1.175, B: 0.5933),
+  DataPoint(A: 1.200, B: 0.5881),
+  DataPoint(A: 1.225, B: 0.5810),
+  DataPoint(A: 1.250, B: 0.5736),
+  DataPoint(A: 1.275, B: 0.5690),
+  DataPoint(A: 1.300, B: 0.5651),
+  DataPoint(A: 1.325, B: 0.5629),
+  DataPoint(A: 1.350, B: 0.5609),
+  DataPoint(A: 1.375, B: 0.5591),
+  DataPoint(A: 1.400, B: 0.5575),
+  DataPoint(A: 1.425, B: 0.5558),
+  DataPoint(A: 1.450, B: 0.5543),
+  DataPoint(A: 1.475, B: 0.5527),
+  DataPoint(A: 1.500, B: 0.5513),
+  DataPoint(A: 1.525, B: 0.5499),
+  DataPoint(A: 1.550, B: 0.5485),
+  DataPoint(A: 1.575, B: 0.5472),
+  DataPoint(A: 1.600, B: 0.5460),
+  DataPoint(A: 1.625, B: 0.5449),
+  DataPoint(A: 1.650, B: 0.5438),
+  DataPoint(A: 1.675, B: 0.5428),
+  DataPoint(A: 1.700, B: 0.5419),
+  DataPoint(A: 1.725, B: 0.5410),
+  DataPoint(A: 1.750, B: 0.5401),
+  DataPoint(A: 1.775, B: 0.5393),
+  DataPoint(A: 1.800, B: 0.5385),
+  DataPoint(A: 1.825, B: 0.5377),
+  DataPoint(A: 1.850, B: 0.5369),
+  DataPoint(A: 1.875, B: 0.5361),
+  DataPoint(A: 1.900, B: 0.5354),
+  DataPoint(A: 1.925, B: 0.5346),
+  DataPoint(A: 1.950, B: 0.5338),
+  DataPoint(A: 2.000, B: 0.5323),
+  DataPoint(A: 2.100, B: 0.5294),
+  DataPoint(A: 2.200, B: 0.5267),
+  DataPoint(A: 2.300, B: 0.5240),
+  DataPoint(A: 2.400, B: 0.5216),
+  DataPoint(A: 2.500, B: 0.5193),
+  DataPoint(A: 2.600, B: 0.5170),
+  DataPoint(A: 2.650, B: 0.5160),
+  DataPoint(A: 2.700, B: 0.5149),
+  DataPoint(A: 2.800, B: 0.5129),
+  DataPoint(A: 2.900, B: 0.5109),
+  DataPoint(A: 3.000, B: 0.5091),
+  DataPoint(A: 3.100, B: 0.5074),
+  DataPoint(A: 3.200, B: 0.5058),
+  DataPoint(A: 3.300, B: 0.5043),
+  DataPoint(A: 3.400, B: 0.5029),
+  DataPoint(A: 3.500, B: 0.5017),
+  DataPoint(A: 3.600, B: 0.5006),
+  DataPoint(A: 3.700, B: 0.4995),
+  DataPoint(A: 3.800, B: 0.4986),
+  DataPoint(A: 3.900, B: 0.4977),
+  DataPoint(A: 4.000, B: 0.4969),
+];
+
+List<CurvePoint> ra4Curve = calculateCurve(ra4Table);
 
 List<CurvePoint> calculateCurve(List<DataPoint> dataPoints) {
   List<CurvePoint> curve = [];
