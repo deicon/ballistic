@@ -1,13 +1,27 @@
 enum DragTableId {
+  /// FB Spitzer
   g1,
+
   g2,
+
   g5,
+
   g6,
+
+  /// Boattail
   g7,
+
   g8,
+
+  /// Sphere (musket ball)
   gS,
+
+  /// Cylinder (wad cutter)
   gC,
+
   gI,
+
+  /// .22LR
   ra4,
 }
 
