@@ -21,6 +21,9 @@ enum DragTableId {
 
   gI,
 
+  /// Airgun pellets
+  gA,
+
   /// .22LR
   ra4,
 }
@@ -96,6 +99,8 @@ DragFunction dragFunctionFactory(DragTableId dragTable) {
       throw UnimplementedError('$dragTable not implemented');
     case DragTableId.gI:
       return (mach) => calculateByCurve(gITable, gICurve, mach);
+    case DragTableId.gA:
+      return (mach) => calculateByCurve(gATable, gACurve, mach);
     case DragTableId.ra4:
       return (mach) => calculateByCurve(ra4Table, ra4Curve, mach);
   }
@@ -947,6 +952,49 @@ List<DataPoint> ra4Table = [
 ];
 
 List<CurvePoint> ra4Curve = calculateCurve(ra4Table);
+
+// source: https://www.gatewaytoairguns.org/GTA/index.php?topic=159961
+List<DataPoint> gATable = [
+  DataPoint(A: 0.000, B: 0.250),
+  DataPoint(A: 0.100, B: 0.235),
+  DataPoint(A: 0.200, B: 0.221),
+  DataPoint(A: 0.300, B: 0.207),
+  DataPoint(A: 0.400, B: 0.196),
+  DataPoint(A: 0.500, B: 0.189),
+  DataPoint(A: 0.600, B: 0.189),
+  DataPoint(A: 0.700, B: 0.202),
+  DataPoint(A: 0.800, B: 0.241),
+  DataPoint(A: 0.900, B: 0.329),
+  DataPoint(A: 1.000, B: 0.488),
+  DataPoint(A: 1.100, B: 0.597),
+  DataPoint(A: 1.200, B: 0.649),
+  DataPoint(A: 1.300, B: 0.669),
+  DataPoint(A: 1.400, B: 0.672),
+  DataPoint(A: 1.500, B: 0.667),
+  DataPoint(A: 1.600, B: 0.657),
+  DataPoint(A: 1.700, B: 0.644),
+  DataPoint(A: 1.800, B: 0.630),
+  DataPoint(A: 1.900, B: 0.616),
+  DataPoint(A: 2.000, B: 0.602),
+  DataPoint(A: 2.100, B: 0.589),
+  DataPoint(A: 2.200, B: 0.577),
+  DataPoint(A: 2.300, B: 0.566),
+  DataPoint(A: 2.400, B: 0.556),
+  DataPoint(A: 2.500, B: 0.548),
+  DataPoint(A: 2.600, B: 0.540),
+  DataPoint(A: 2.700, B: 0.534),
+  DataPoint(A: 2.800, B: 0.529),
+  DataPoint(A: 2.900, B: 0.524),
+  DataPoint(A: 3.000, B: 0.521),
+  DataPoint(A: 3.100, B: 0.521),
+  DataPoint(A: 3.200, B: 0.517),
+  DataPoint(A: 3.300, B: 0.514),
+  DataPoint(A: 3.400, B: 0.510),
+  DataPoint(A: 3.500, B: 0.507),
+  DataPoint(A: 3.600, B: 0.503),
+];
+
+List<CurvePoint> gACurve = calculateCurve(ra4Table);
 
 List<CurvePoint> calculateCurve(List<DataPoint> dataPoints) {
   List<CurvePoint> curve = [];
