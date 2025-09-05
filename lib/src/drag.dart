@@ -151,6 +151,7 @@ class CurvePoint {
 
 const double pir = 2.08551e-04;
 
+// source: https://jbmballistics.com/ballistics/downloads/text/mcg1.txt
 List<DataPoint> g1Table = [
   DataPoint(A: 0.00, B: 0.2629),
   DataPoint(A: 0.05, B: 0.2558),
@@ -235,6 +236,7 @@ List<DataPoint> g1Table = [
 
 List<CurvePoint> g1Curve = calculateCurve(g1Table);
 
+// source: https://jbmballistics.com/ballistics/downloads/text/mcg7.txt
 List<DataPoint> g7Table = [
   DataPoint(A: 0.00, B: 0.1198),
   DataPoint(A: 0.05, B: 0.1197),
@@ -324,6 +326,7 @@ List<DataPoint> g7Table = [
 
 List<CurvePoint> g7Curve = calculateCurve(g7Table);
 
+// source: https://jbmballistics.com/ballistics/downloads/text/mcg2.txt
 List<DataPoint> g2Table = [
   DataPoint(A: 0.00, B: 0.2303),
   DataPoint(A: 0.05, B: 0.2298),
@@ -414,6 +417,7 @@ List<DataPoint> g2Table = [
 
 List<CurvePoint> g2Curve = calculateCurve(g2Table);
 
+// source: https://jbmballistics.com/ballistics/downloads/text/mcg5.txt
 List<DataPoint> g5Table = [
   DataPoint(A: 0.00, B: 0.1710),
   DataPoint(A: 0.05, B: 0.1719),
@@ -495,6 +499,7 @@ List<DataPoint> g5Table = [
 
 List<CurvePoint> g5Curve = calculateCurve(g5Table);
 
+// source: https://jbmballistics.com/ballistics/downloads/text/mcg6.txt
 List<DataPoint> g6Table = [
   DataPoint(A: 0.00, B: 0.2617),
   DataPoint(A: 0.05, B: 0.2553),
@@ -579,6 +584,7 @@ List<DataPoint> g6Table = [
 
 List<CurvePoint> g6Curve = calculateCurve(g6Table);
 
+// https://jbmballistics.com/ballistics/downloads/text/mcg8.txt
 List<DataPoint> g8Table = [
   DataPoint(A: 0.00, B: 0.2105),
   DataPoint(A: 0.05, B: 0.2105),
