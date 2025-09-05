@@ -13,18 +13,18 @@ enum DragTableId {
 
   g8,
 
-  /// Sphere (musket ball)
+  /// Sphere
   gS,
 
-  /// Cylinder (wad cutter)
+  /// Cylinder
   gC,
 
   gI,
 
-  /// Airgun pellets
+  /// Airgun Pellets
   gA,
 
-  /// .22LR
+  /// 22 LR
   ra4,
 }
 
