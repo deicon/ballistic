@@ -994,7 +994,7 @@ List<DataPoint> gATable = [
   DataPoint(A: 3.600, B: 0.503),
 ];
 
-List<CurvePoint> gACurve = calculateCurve(ra4Table);
+List<CurvePoint> gACurve = calculateCurve(gATable);
 
 List<CurvePoint> calculateCurve(List<DataPoint> dataPoints) {
   List<CurvePoint> curve = [];
